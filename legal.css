@@ -1,0 +1,171 @@
+:root {
+    --main-theme-color: #054132;
+    --main-text-color: rgb(239, 239, 239);
+}
+
+*,
+*::before
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: var(--main-text-color);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(45deg, #04221a, var(--main-theme-color));
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: 100;
+}
+
+section {
+    padding: 0 0.5rem 1rem;
+}
+
+h1 {
+    padding-top: 70px;
+    color: goldenrod;
+}
+
+h2 {
+    padding-top: 1rem;
+    color: goldenrod;
+}
+
+h3 {
+    padding-top: 0.5rem;
+
+}
+
+h4 {
+    padding-top: 0.5rem;
+
+}
+
+p {
+    padding-top: 0.25rem;
+}
+
+
+
+/* Navigation */
+
+nav {
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+  
+nav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+}
+  
+nav a:hover {
+    background-color: var(--main-theme-color);
+}
+  
+nav svg {
+    fill: rgb(239, 239, 239);
+}
+  
+#sidebar-active {
+    display: none;
+}
+  
+.open-sidebar-button, .close-sidebar-button {
+    padding: 20px;
+    display: block;
+}
+
+.close-sidebar-button {
+    position: absolute;
+    top: 0;
+}
+
+#sidebar-active:checked ~ .links-container {
+    right: 0;
+}
+
+#sidebar-active:checked ~ #overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+  
+.links-container {
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    height: 100%;
+    width: 75%;
+
+    background-color: black;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+
+    transition: 0.5s ease-out;
+}
+
+
+
+@media only screen and (min-width: 830px) {
+    /* Navigation */
+
+    nav {
+        justify-content: center;
+    }
+
+    nav a {  
+        justify-content: center;
+        height: 100%;
+        width: auto;
+        padding: 0 20px;
+    }
+
+    .open-sidebar-button, .close-sidebar-button {
+        display: none;
+    }
+
+    .links-container {
+        flex-direction: row;
+        
+        align-items: center;
+        top: auto;
+        right: auto;
+        height: 100%;
+        width: 100%;
+        position: static;
+    }
+}
